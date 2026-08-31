@@ -1,5 +1,7 @@
 # Sentinel Triage Agent
 
+**This submission addresses Problem 2: Uncategorised queue triage.**
+
 A lightweight, multi-agent Node.js/TypeScript system for automated legal queue triage. It ingests structured legal records, runs a security gate and business-logic classification pipeline via Groq-hosted LLMs, and produces auditable routing decisions with side-effect execution.
 
 ## Quick Start

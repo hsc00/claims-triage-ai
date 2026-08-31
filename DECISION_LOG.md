@@ -60,7 +60,7 @@ A successful run of `npm start` against the 20-item queue produced:
 - `ESCALATE_TO_HUMAN`: 3
 - `REFUSED_INVALID`: 12
 
-Sample runtime traces are in `logs/audit-2026-08-31.jsonl` and `logs/side_effects.jsonl`.
+These counts are model-dependent and may vary. Sample runtime traces are generated in `logs/audit-2026-08-31.jsonl` and `logs/side_effects.jsonl`.
 
 ### 9. Post-Review Fixes Log
 
