@@ -54,13 +54,13 @@ The eval suite (`npm run eval`) outputs per-config accuracy, total tokens, and e
 
 ### 8. Run results
 
-A successful run of `npm start` against the 20-item queue produced:
+Running `npm start` against the 20-item queue produces audit and side-effect traces in `logs/`. Running `npm run eval` produces evaluation metrics for both configurations. Counts and accuracy scores are model-dependent and will vary based on Groq availability and model versions. You might get rate limited since groq has limited free calls.
 
-- `AUTO_FILED`: 5
-- `ESCALATE_TO_HUMAN`: 3
-- `REFUSED_INVALID`: 12
+Trace format:
 
-These counts are model-dependent and may vary. Sample runtime traces are generated in `logs/audit-2026-08-31.jsonl` and `logs/side_effects.jsonl`.
+- `logs/audit-YYYY-MM-DD.jsonl` — one JSON line per item with timestamp, item_id, security_result, triage_result, confidence, and processing_time_ms.
+- `logs/side_effects.jsonl` — one JSON line per item with action taken (`ASSIGNED_TO_WORKFLOW`, `NOTIFIED_HUMAN_REVIEW`, or `BLOCKED_AND_LOGGED`) and key details.
+- `logs/results-YYYY-MM-DD.json` — aggregate results array and summary from a live run.
 
 ### 9. Post-Review Fixes Log
 
@@ -80,10 +80,4 @@ The following issues were identified during code review and resolved:
 
 ### 10. Sample Traces
 
-Sample runtime logs are committed in `logs/` to satisfy the submission requirement of providing sample traces:
-
-- `logs/audit-2026-08-31.jsonl` — 20 audit entries from a live run, showing decisions, security flags, and token usage where available.
-- `logs/side_effects.jsonl` — corresponding side-effect records showing workflow assignment and block/quarantine actions.
-- `logs/results-2026-08-31.json` — full results array and summary from the live run.
-
-When `npm start` is run, live traces are appended to the dated JSONL files and side-effects file in the same format.
+Run `npm start` to generate live audit and side-effect traces in `logs/`. Run `npm run eval` to generate evaluation metrics. Traces are not committed to the repository; they are produced on demand and can be cleaned with `npm run clean`.
