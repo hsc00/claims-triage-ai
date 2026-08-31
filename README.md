@@ -56,3 +56,4 @@ A lightweight, multi-agent Node.js/TypeScript system for automated legal queue t
 | `GROQ_API_KEY` | *required* | Groq API key |
 | `PRIMARY_MODEL` | `qwen/qwen3.8-27b` | Model for triage reasoning |
 | `LIGHTWEIGHT_MODEL` | `qwen/qwen3.6-27b` | Model for security gate |
+| `DEBUG_LLM` | `false` | When `true`, prints raw LLM request/response payloads to stdout for debugging |
